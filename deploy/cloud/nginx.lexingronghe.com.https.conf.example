@@ -1,0 +1,122 @@
+# =============================================================================
+# 云服务器 Nginx：动静分离 + HTTPS + Tailscale 回极空间（手动挂证书版）
+# =============================================================================
+# 适用：Certbot 已成功签发证书但「Could not install」时，把证书路径填到下面。
+# 证书目录名以 certbot 为准，常见为 www.lexingronghe.com 或 lexingronghe.com。
+# 部署：sudo nginx -t && sudo systemctl reload nginx
+# =============================================================================
+
+upstream nas_entry {
+    server 100.106.198.73:8888;
+    keepalive 8;
+}
+
+# -----------------------------------------------------------------------------
+# 裸域 → www（HTTP + HTTPS 同块，避免漏配 443）
+# -----------------------------------------------------------------------------
+server {
+    listen 80;
+    listen 443 ssl http2;
+    server_name lexingronghe.com;
+
+    ssl_certificate     /etc/letsencrypt/live/www.lexingronghe.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.lexingronghe.com/privkey.pem;
+    # include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    return 301 https://www.lexingronghe.com$request_uri;
+}
+
+# -----------------------------------------------------------------------------
+# 官网 www：80 → 443
+# -----------------------------------------------------------------------------
+server {
+    listen 80;
+    server_name www.lexingronghe.com;
+    return 301 https://www.lexingronghe.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.lexingronghe.com;
+
+    ssl_certificate     /etc/letsencrypt/live/www.lexingronghe.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.lexingronghe.com/privkey.pem;
+    # include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    client_max_body_size 20m;
+
+    root /var/www/www.lexingronghe.com;
+    index index.html;
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml image/svg+xml;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~ ^/(api|uploads|health) {
+        proxy_pass http://nas_entry;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# -----------------------------------------------------------------------------
+# 管理端 admin：80 → 443
+# -----------------------------------------------------------------------------
+server {
+    listen 80;
+    server_name admin.lexingronghe.com;
+    return 301 https://admin.lexingronghe.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name admin.lexingronghe.com;
+
+    ssl_certificate     /etc/letsencrypt/live/www.lexingronghe.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.lexingronghe.com/privkey.pem;
+    # include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    client_max_body_size 20m;
+
+    root /var/www/admin.lexingronghe.com;
+    index index.html;
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml image/svg+xml;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~ ^/(api|uploads|health) {
+        proxy_pass http://nas_entry;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

@@ -1,0 +1,69 @@
+# =============================================================================
+# 云服务器 Nginx：仅 listen 80（HTTP）+ Tailscale 回极空间
+# =============================================================================
+# 适用：内网测试、或 HTTPS 由 CDN/负载均衡/其它层处理，本机只做 80。
+# 若要在本机终止 HTTPS，请改用：nginx.lexingronghe.com.https.conf.example
+# =============================================================================
+
+# 1. 定义极空间「地下通道」地址（Tailscale IP + NAS 上 Docker 映射端口，一般为 8888）
+upstream nas_entry {
+    server 100.106.198.73:8888;
+    keepalive 8;
+}
+
+# 2. 裸域名 → www（纯 80 时用 http://；若前面有 CDN 代管 HTTPS 可改为 https://www...）
+server {
+    listen 80;
+    server_name lexingronghe.com;
+    return 301 http://www.lexingronghe.com$request_uri;
+}
+
+# 3. 官网（www）：静态在阿里云，API/上传/健康检查回极空间
+server {
+    listen 80;
+    server_name www.lexingronghe.com;
+
+    client_max_body_size 20m;
+
+    root /var/www/www.lexingronghe.com;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~ ^/(api|uploads|health) {
+        proxy_pass http://nas_entry;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# 4. 管理后台（admin）：静态在阿里云，动态回极空间
+server {
+    listen 80;
+    server_name admin.lexingronghe.com;
+
+    client_max_body_size 20m;
+
+    root /var/www/admin.lexingronghe.com;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~ ^/(api|uploads|health) {
+        proxy_pass http://nas_entry;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

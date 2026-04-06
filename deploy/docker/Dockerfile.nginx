@@ -1,0 +1,8 @@
+# 构建时把 Nginx 配置与 admin 静态页打入镜像，避免极空间 ZDocker 对主机卷路径校验失败
+FROM docker.1panel.live/library/nginx:alpine
+# 官方镜像启动脚本会把 templates/*.template 生成到 conf.d/，会覆盖构建时 COPY 的配置，导致一直显示 Welcome to nginx
+RUN rm -rf /etc/nginx/templates/*.template 2>/dev/null || true
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+# 先去掉官方默认页，避免 html/admin 为空时仍显示 Welcome to nginx
+RUN rm -rf /usr/share/nginx/html/*
+COPY html/admin/ /usr/share/nginx/html/

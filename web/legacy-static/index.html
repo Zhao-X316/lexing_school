@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐星融合学校 | 用心呵护，每个孩子的星光</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+    <!-- =========================================
+         模块一：首屏
+         ========================================= -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="top-controls reveal-up" style="transition-delay: 0.3s;">
+            <button class="ctrl-btn icon-only" aria-label="Search">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="ctrl-btn" aria-label="Menu">
+                <span style="font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">MENU</span>
+            </button>
+            <a href="http://localhost:5001" class="ctrl-btn login-btn" aria-label="Login" target="_blank">
+                <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                <span style="font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">LOGIN</span>
+            </a>
+        </div>
+
+        <div class="title-wrapper">
+            <h1 class="main-title reveal-up" style="transition-delay: 0.1s;">用心呵护，<br>每个孩子的星光</h1>
+        </div>
+
+        <div class="scroll-hint reveal-up" style="transition-delay: 0.5s;">
+            <div class="scroll-hint-icon"></div>
+            <span>滚动探索</span>
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块二：核心理念
+         ========================================= -->
+    <section class="ethos-section" id="ethos">
+        <div class="ethos-grid">
+            <div class="ethos-media-wrapper observe-target">
+                <div class="ethos-media">
+                    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1602052793312-b99c2a9ee797?q=80&w=2500&auto=format&fit=crop">
+                        <source src="https://cdn.pixabay.com/video/2020/05/24/40061-424683057_large.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="ethos-content observe-target">
+                <span class="ethos-subtitle">Our Ethos</span>
+                <h2 class="ethos-title">在这里，你们不再是<br>孤军奋战</h2>
+                <p class="ethos-desc">
+                    我们深知，自闭症谱系家庭的旅程充满了未知与挑战。在乐星，我们不视差异为缺陷，而是将其视为每个孩子独特的宇宙。
+                </p>
+                <p class="ethos-desc">
+                    我们的康复体系建立在极度同理心、坚定的决心与科学的干预之上。在这里，每一丝微小的进步都会被看见，每一次情绪的起伏都能被接纳。我们不仅是教育者，更是您最坚实的后盾。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块三：设施展示区块
+         ========================================= -->
+    <section class="facility-section" id="facilities">
+
+        <div class="facility-intro observe-container">
+            <div class="intro-content">
+                <h2 class="huge-text line-left">参观我们专业的康复室和功能丰富的活动室</h2>
+                <a href="#book-tour" class="huge-text line-right link-hover">- 预约参观</a>
+            </div>
+        </div>
+
+        <div class="facility-details observe-container">
+            <div class="facility-grid">
+
+                <div class="facility-text slide-from-left">
+                    <span class="facility-subtitle">Professional Spaces</span>
+                    <h3 class="facility-title">安全、纯净的<br>成长庇护所</h3>
+                    <p class="facility-desc">
+                        每一间康复室都经过精心的声学与光影设计，确保为孩子们提供低刺激、高包容的感官环境。
+                    </p>
+                    <p class="facility-desc">
+                        从专业的感统训练中心到个别化干预 (IEP) 教室，我们用医疗级的严谨与教育者的温情，构筑孩子们探索世界的安全基石。所有的边角都经过圆润处理，所有的材质都严苛遵循最高环保标准。
+                    </p>
+                </div>
+
+                <div class="facility-media slide-from-right">
+                    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1576444356170-66073046b1bc?q=80&w=2500&auto=format&fit=crop">
+                        <source src="https://cdn.pixabay.com/video/2021/08/24/86131-592323282_large.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块四：为什么选择我们（横向滚动）
+         ========================================= -->
+    <section class="why-choose-us-container" id="why-choose-us">
+
+        <div class="sticky-viewport">
+
+            <header class="fixed-header">
+                <h2 class="main-title">为什么选择我们</h2>
+                <div class="wave-wrapper">
+                    <svg class="wave-svg" viewBox="0 0 200 20" preserveAspectRatio="none">
+                        <path d="M 0 10 Q 25 0 50 10 Q 75 20 100 10 Q 125 0 150 10 Q 175 20 200 10"
+                              fill="none" stroke="#E2A76F" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="sub-title">我们的独特之处</p>
+            </header>
+
+            <div class="horizontal-track">
+
+                <article class="panel panel-1">
+                    <div class="panel-content">
+                        <h3 class="panel-title">我们的价值观</h3>
+                        <p class="panel-desc">在乐星，我们相信每个孩子都是宇宙中独一无二的星体。我们不强求整齐划一的轨道，而是致力于发现并点亮他们原有的运行轨迹。</p>
+                    </div>
+                    <div class="panel-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544365558-35aa4af41199?q=80&w=1200&auto=format&fit=crop" alt="师生温暖互动" class="panel-img">
+                    </div>
+                    <div class="panel-blank"></div>
+                </article>
+
+                <article class="panel panel-2">
+                    <div class="panel-content">
+                        <h3 class="panel-title">校长致辞</h3>
+                        <p class="panel-desc">"真正的融合，不是让孩子们努力伪装成普通人的样子，而是教导整个世界去拥抱神经多样性。这是乐星建立的初衷，也是我们每日践行的使命。"</p>
+                        <span class="signature">— 乐星创办人</span>
+                    </div>
+                    <div class="panel-blank"></div>
+                    <div class="panel-image-wrapper full-radius">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop" alt="校长致辞" class="panel-img">
+                    </div>
+                </article>
+
+                <article class="panel panel-3">
+                    <div class="panel-content">
+                        <h3 class="panel-title">师资力量支撑</h3>
+                        <p class="panel-desc">我们汇聚了BCBA认证行为分析师、资深言语治疗师(ST)及作业治疗师(OT)。以1:1或1:2的极致师生比，确保护理的极度专业与专注。</p>
+                    </div>
+                    <div class="panel-blank"></div>
+                    <div class="panel-image-wrapper full-radius">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1200&auto=format&fit=crop" alt="专业医疗团队" class="panel-img">
+                    </div>
+                </article>
+
+                <article class="panel panel-4">
+                    <div class="panel-content">
+                        <h3 class="panel-title">完整的教学规划</h3>
+                        <p class="panel-desc">从科学全面的入校评估，到定制化IEP个别教育计划；从密集的早期干预，到学龄期的融合过渡。我们为您规划一条清晰可见的成长路径。</p>
+                    </div>
+                    <div class="panel-blank"></div>
+                    <div class="panel-image-wrapper full-radius">
+                        <img src="https://images.unsplash.com/photo-1602052793312-b99c2a9ee797?q=80&w=1200&auto=format&fit=crop" alt="教学场景" class="panel-img">
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块五：资讯与活动
+         ========================================= -->
+    <section class="news-section" id="news">
+        <header class="news-header">
+            <h2 class="news-title">公告</h2>
+            <p class="news-subtitle">看看我们最近发生了什么</p>
+        </header>
+
+        <div class="news-content">
+            <div class="news-featured">
+                <div class="featured-overlay">
+                    <h3 class="featured-title">秋季学期新闻</h3>
+                </div>
+            </div>
+
+            <div class="news-slider-wrapper" id="sliderWrapper">
+                <div class="news-slider-track" id="sliderTrack"></div>
+            </div>
+        </div>
+
+        <div class="news-controls">
+            <div class="nav-arrows">
+                <button class="arrow-btn" id="btnPrev" aria-label="上一页">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="arrow-btn" id="btnNext" aria-label="下一页">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+            <div class="nav-dots" id="navDots"></div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块六：家长感受
+         ========================================= -->
+    <section class="testimonial-section" id="testimonials">
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-media observe-target">
+                <video controls preload="metadata" poster="https://images.unsplash.com/photo-1544365558-35aa4af41199?q=80&w=2500&auto=format&fit=crop">
+                    <source src="https://cdn.pixabay.com/video/2020/05/24/40061-424683057_large.mp4" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频标签。
+                </video>
+            </div>
+
+            <div class="testimonial-content observe-target">
+                <blockquote class="quote-text">
+                    在这里，我第一次看到了孩子主动伸出手的瞬间。那种被理解、被接纳的氛围，是我们寻觅已久的奇迹。
+                </blockquote>
+                <p class="quote-author">星星（化名）的妈妈，入园 1 年</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================
+         模块七：社交矩阵
+         ========================================= -->
+    <section class="social-matrix-section" id="social-feed">
+        <header class="matrix-header observe-target">
+            <h2 class="matrix-title">跟着我们</h2>
+            <div class="squiggle-wrapper">
+                <svg viewBox="0 0 200 20" preserveAspectRatio="none">
+                    <path d="M0,10 Q25,0 50,10 T100,10 T150,10 T200,10" 
+                          fill="none" stroke="#5C8BB5" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p class="matrix-subtitle">记录孩子们的纯真笑脸，了解我们丰富的康复课程。</p>
+        </header>
+
+        <div class="scrapbook-grid">
+            <div class="scrapbook-card observe-item">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea244b05ffb?q=80&w=800" alt="感统训练">
+                <div class="hover-mask">
+                    <div class="mask-content">
+                        <h4>感统训练课</h4>
+                        <p>通过专业器械提升身体协调与前庭觉发展，建立自信。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scrapbook-card observe-item">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800" alt="言语治疗">
+                <div class="hover-mask">
+                    <div class="mask-content">
+                        <h4>言语沟通课</h4>
+                        <p>在自然的情境中诱导发声，点亮沟通的火花。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scrapbook-card observe-item">
+                <img src="https://images.unsplash.com/photo-1587653263995-422546a72569?q=80&w=800" alt="艺术疗愈">
+                <div class="hover-mask">
+                    <div class="mask-content">
+                        <h4>艺术色彩课</h4>
+                        <p>用画笔释放内心世界，发现不被定义的表达美感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scrapbook-card observe-item">
+                <img src="https://images.unsplash.com/photo-1519340241574-2dec39624d21?q=80&w=800" alt="融合社交">
+                <div class="hover-mask">
+                    <div class="mask-content">
+                        <h4>小班社交课</h4>
+                        <p>在模拟社交中学会等待与分享，建立同伴链接。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="matrix-ctas observe-target">
+            <a href="#" class="matrix-btn btn-wechat">
+                <svg viewBox="0 0 24 24"><path d="M8.5,14c-0.83,0-1.5-0.67-1.5-1.5S7.67,11,8.5,11s1.5,0.67,1.5,1.5S9.33,14,8.5,14z M13.5,14c-0.83,0-1.5-0.67-1.5-1.5 S12.67,11,13.5,11s1.5,0.67,1.5,1.5S14.33,14,13.5,14z M11,4c-4.97,0-9,3.36-9,7.5c0,2.36,1.3,4.45,3.34,5.88L4,21l4.47-2.18 C9.27,18.94,10.12,19,11,19c4.97,0,9-3.36,9-7.5S15.97,4,11,4z"/></svg>
+                微信公众号
+            </a>
+            <a href="#" class="matrix-btn btn-tiktok">
+                <svg viewBox="0 0 24 24"><path d="M12.53,3V17.15c0,2.54-2.07,4.6-4.6,4.6s-4.6-2.06-4.6-4.6,2.07-4.6,4.6-4.6c.4,0,.79,.05,1.17,.16v-3.78c-3.86-.54-6.83,1.39-7.8,4.41C.55,16.27,.82,19.33,2.78,21.3s5.03,2.23,7.11,.24c2.27-2.17,2.21-6.42,2.21-6.42V8.83c1.47,1.05,3.28,1.67,5.23,1.67v-3.69c-2.86,0-5.18-2.32-5.18-5.18V3h-4.62Z"/></svg>
+                抖音
+            </a>
+            <a href="#" class="matrix-btn btn-channels">
+                <svg viewBox="0 0 24 24"><path d="M17,10.5V7c0-0.55-0.45-1-1-1H4C3.45,6,3,6.45,3,7v10c0,0.55,0.45,1,1,1h12c0,0.55,0.45,1,1,1v-3.5l4,4v-11L17,10.5z"/></svg>
+                微信视频号
+            </a>
+        </footer>
+    </section>
+
+    <!-- =========================================
+         模块八：咨询表单与页脚
+         ========================================= -->
+    <section class="consultation-section" id="consultation">
+        <div class="container-narrow">
+            <header class="form-header">
+                <h2>进行咨询</h2>
+                <p>一般咨询请使用此表格。 <a href="#" class="accent-link">点击此处</a>发送入学咨询。</p>
+            </header>
+
+            <form id="consultationForm" class="standard-grid-form">
+                <div class="form-group col-title">
+                    <label for="title">称谓 *</label>
+                    <input type="text" id="title" class="ghost-input" required>
+                </div>
+                <div class="form-group col-firstname">
+                    <label for="fname">名 *</label>
+                    <input type="text" id="fname" class="ghost-input" required>
+                </div>
+                <div class="form-group col-lastname">
+                    <label for="lname">姓 *</label>
+                    <input type="text" id="lname" class="ghost-input" required>
+                </div>
+                
+                <div class="form-group col-full">
+                    <label for="email">电子邮件地址 *</label>
+                    <input type="email" id="email" class="ghost-input" required>
+                </div>
+                
+                <div class="form-group col-full">
+                    <label for="subject">一般查询主题 *</label>
+                    <input type="text" id="subject" class="ghost-input" placeholder="您询问的主题" required>
+                </div>
+
+                <div class="form-group col-full">
+                    <label for="message">您向学校办公室提出的查询 *</label>
+                    <textarea id="message" class="ghost-input" rows="5" placeholder="您的询问" required></textarea>
+                </div>
+                
+                <div class="form-group col-full checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">通过此表格提交的数据将根据学校的 <a href="#" class="accent-link">隐私声明</a> 进行访问、处理和保留。</label>
+                </div>
+
+                <div class="form-actions col-full">
+                    <button type="submit" class="btn-capsule-ghost">发送询价</button>
+                    <p class="recaptcha-text">本网站受 reCAPTCHA 保护，并适用 Google 隐私政策和服务条款。</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container-wide">
+            <div class="footer-main grid-3-cols">
+                <div class="brand-col">
+                    <div class="footer-brand">
+                        <h3 class="footer-brand-title">乐星融合学校</h3>
+                        <p class="footer-brand-desc">用爱与专业，点亮每一个孩子的成长之路</p>
+                    </div>
+                </div>
+                
+                <div class="contact-col">
+                    <h4 class="footer-title">联系我们</h4>
+                    <address>
+                        北京市朝阳区<br>
+                        某某路123号<br><br>
+                        电话: 010-1234-5678<br>
+                        邮箱: contact@lexing-school.com
+                    </address>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">微信</a>
+                        <a href="#" class="social-icon">抖音</a>
+                        <a href="#" class="social-icon">小红书</a>
+                    </div>
+                </div>
+                
+                <div class="links-col">
+                    <h4 class="footer-title">实用链接</h4>
+                    <ul class="clean-list">
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">最新消息</a></li>
+                        <li><a href="#">工作机会</a></li>
+                        <li><a href="#">场地租赁</a></li>
+                    </ul>
+                    <div class="partner-logos">
+                        <span class="placeholder-partner">ISO认证</span>
+                        <span class="placeholder-partner">协会会员</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container-wide flex-space-between">
+                <div class="copyright-info">
+                    © 2024 乐星融合学校 版权所有 | <a href="#" class="accent-link line-link">隐私政策</a> | <a href="#" class="accent-link line-link">服务条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         全局悬浮按钮
+         ========================================= -->
+    <div class="global-cta cta-secondary-fixed" id="secondaryCta">
+        <a href="#" class="cta-text" style="text-decoration: none; color: inherit;">了解康复体系</a>
+        <button class="close-btn" id="closeCtaBtn" aria-label="关闭">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+            </svg>
+        </button>
+    </div>
+
+    <a href="#" class="global-cta cta-primary-fixed">预约能力评估</a>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

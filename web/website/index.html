@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>乐星融合学校 | 用心呵护，每个孩子的星光</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="is-loading">
+    <div id="app"></div>
+    <div id="loading-fallback" style="position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.9);font-size:1rem;z-index:9999;">正在加载…</div>
+    <noscript>请启用 JavaScript 以正常浏览本站。</noscript>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      window.__removeLoadingFallback = function () {
+        var el = document.getElementById('loading-fallback');
+        if (el) el.remove();
+      };
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        document.body.classList.add('is-loaded');
+        window.__removeLoadingFallback();
+      }, 8000);
+    </script>
+  </body>
+</html>

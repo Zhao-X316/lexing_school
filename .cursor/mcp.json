@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "user-workflow3": {
+      "command": "npx",
+      "args": ["-y", "user-workflow3"],
+      "env": {}
+    }
+  }
+}

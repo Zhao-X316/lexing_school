@@ -1,0 +1,42 @@
+# 极空间 / NAS：backend + Nginx（同域）；MySQL 由你自行部署（本文件不再内置 mysql 服务）
+# 在 deploy/docker 目录部署。build.context 须为 SSH 真实路径；server / deploy 可能跨 data_s001、data_s002。
+# 连接已有 MySQL：在 deploy/docker/.env 中配置 MYSQL_*（模板见 .env.example）。
+# 极空间从 /zspace/.../compose_config/ 解析 compose 时，相对路径 env_file: .env 找不到文件，须用下面绝对路径。
+
+services:
+  backend:
+    build:
+      context: /data_s001/data/udata/real/18106781808/web/Docker/lexing_school/server
+      dockerfile: Dockerfile
+    pull_policy: never
+    container_name: lexing-backend
+    restart: unless-stopped
+    env_file:
+      - /data_s002/data/udata/real/18106781808/web/Docker/lexing_school/deploy/docker/.env
+    environment:
+      NODE_ENV: production
+    volumes:
+      - uploads_data:/app/uploads
+      # 教案模板上传目录（与 TEMPLATE_STORAGE_PATH 一致）；不挂卷则重建容器后文件丢失，预览/下载会 404
+      - templates_data:/app/templates
+    expose:
+      - "3001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  nginx:
+    build:
+      context: /data_s002/data/udata/real/18106781808/web/Docker/lexing_school/deploy/docker
+      dockerfile: Dockerfile.nginx
+    image: lexing-nginx:local
+    pull_policy: never
+    container_name: lexing-nginx
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    depends_on:
+      - backend
+
+volumes:
+  uploads_data:
+  templates_data:

@@ -1,0 +1,11 @@
+{
+  "name": "lexing-school",
+  "private": true,
+  "description": "乐星融合学校数字化教学管理系统",
+  "scripts": {
+    "dev": "npm run dev --prefix web/website",
+    "dev:website": "npm run dev --prefix web/website",
+    "dev:admin": "npm run dev --prefix web/admin",
+    "dev:server": "npm run dev --prefix server"
+  }
+}
